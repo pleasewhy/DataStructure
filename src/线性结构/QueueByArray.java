@@ -19,11 +19,14 @@ public class QueueByArray implements Iterable {
     }
 
     public QueueByArray(int[] itemArray) {
+        items = new int[size];
         pushAll(itemArray);
     }
-    public int length(){
+
+    public int length() {
         return length;
     }
+
     public boolean empty() {
         return this.length == 0;
     }
@@ -72,7 +75,7 @@ public class QueueByArray implements Iterable {
 
     public int pop() {
         int rev = get();
-        head -= 1;
+        head += 1;
         length -= 1;
         return rev;
     }
@@ -102,10 +105,12 @@ public class QueueByArray implements Iterable {
 
     public static void main(String[] args) {
         int[] test1 = {1, 2, 3, 4, 5, 6};
-        QueueByArray q = new QueueByArray();
+        QueueByArray q = new QueueByArray(test1);
+        System.out.print(q.pop());
         q.pushAll(test1);
         for (Object i : q) {
             System.out.print(i + " ");
         }
+        System.out.print(q.get());
     }
 }
