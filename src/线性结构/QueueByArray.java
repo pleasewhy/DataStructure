@@ -3,7 +3,7 @@ package 线性结构;
 import java.util.Iterator;
 
 /**
- * 用数组实现的队列
+ * 数组实现的队列
  * @version 1.0
  * @time 2019-11-18
  * @author hy
@@ -38,7 +38,7 @@ public class QueueByArray<T> implements Iterable<T> {
      */
     public QueueByArray(T[] itemArray) {
         items = (T[])(new Object[size]);
-        pushAll(itemArray);
+        addAll(itemArray);
     }
 
     /**
@@ -81,7 +81,7 @@ public class QueueByArray<T> implements Iterable<T> {
      * 将item送入队列
      * @param item
      */
-    public void push(T item) {
+    public void add(T item) {
         if (tail != size) {
             items[tail++] = item;
             length += 1;
@@ -98,12 +98,12 @@ public class QueueByArray<T> implements Iterable<T> {
      * 将itemArray送入队列
      * @param itemArray
      */
-    public void pushAll(T[] itemArray) {
+    public void addAll(T[] itemArray) {
         if (size - length < itemArray.length) {
             throw new IndexOutOfBoundsException();
         }
         for (int i = 0; i < itemArray.length; ++i) {
-            push(itemArray[i]);
+            add(itemArray[i]);
         }
     }
 
@@ -159,7 +159,7 @@ public class QueueByArray<T> implements Iterable<T> {
         Integer[] test1 = {1, 2, 3, 4, 5, 6};
         QueueByArray q = new QueueByArray(test1);
         System.out.print(q.pop());
-        q.pushAll(test1);
+        q.addAll(test1);
         for (Object i : q) {
             System.out.print(i + " ");
         }

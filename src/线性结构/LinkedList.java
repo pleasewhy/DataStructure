@@ -2,33 +2,28 @@ package 线性结构;
 
 import java.util.Iterator;
 
-
+/**
+ * 链表
+ *
+ * @param <T>
+ */
 public class LinkedList<T> implements Iterable {
     private int length = 0;  // 用于记录链表的长度
-    private int MAXlength = 10000;  // 链表的最大长度
-    private Node<T> root = new Node<T>();  // 链表的头节点
-    private Node<T> tail = new Node<T>();
+    protected Item<T> head = new Item<T>();  // 链表的头节点
+    protected Item<T> tail = new Item<T>(head);
 
     public LinkedList() {
-        tail.setPrevious(root);
+        tail.setPrevious(head);
     }
 
-    public LinkedList(int MAXlength) {
-        this();
-        this.MAXlength = MAXlength;
-    }
-
-    public int getMAXlength() {
-        return MAXlength;
+    public LinkedList(T[] items) {
+        addAll(items);
     }
 
     public int getLength() {
         return length;
     }
 
-    public void setMAXlength(int MAXlength) {
-        this.MAXlength = MAXlength;
-    }
 
     // iterator接口需要实现的方法
     @Override
@@ -37,42 +32,36 @@ public class LinkedList<T> implements Iterable {
     }
 
     public void add(T data) {
-        Node<T> node = new Node<>(data, this.tail.getPrevious());
-        this.tail.getPrevious().setNext(node);
-        tail.setPrevious(node);
-        this.length += 1;
-    }
-
-    public void addAll(LinkedList<T> linkedList) {
-        Node<T> now = this.tail.getPrevious();
-        Node<T> tmp = now;
-        for (Iterator<T> itor = linkedList.iterator(); itor.hasNext(); ) {
-            tmp = new Node<T>(itor.next(), now);
-            now.setNext(tmp);
-            now = tmp;
+        Item<T> item = new Item<>(data);
+        if (length == 0) {
+            head.setNext(item);
+            tail.setPrevious(item);
+        } else {
+            tail.getPrevious().setNext(item);
+            item.setPrevious(tail.getPrevious());
+            tail.setPrevious(item);
         }
-        tail.setPrevious(now);
-        this.length += linkedList.length;
+        length += 1;
     }
 
-    public void addAll(T[] array) {
-        Node<T> now = this.tail.getPrevious();
-        Node<T> tmp = now;
-        for (int i = 0; i < array.length; ++i) {
-            tmp = new Node<T>(array[i], now);
-            now.setNext(tmp);
-            now = tmp;
+    public void addAll(LinkedList<T> items) {
+        for (Iterator<T> itor = items.iterator(); itor.hasNext(); ) {
+            add(itor.next());
         }
-        tail.setPrevious(now);
-        this.length += array.length;
     }
 
-    public void set(int index, T data) {
-        Node<T> node;
+    public void addAll(T[] items) {
+        for (int i = 0; i < items.length; ++i) {
+            add(items[i]);
+        }
+    }
+
+    public void set(int index, T item) {
+        Item<T> tmp;
         for (LinkedListIterator itor = new LinkedListIterator(); itor.hasNext(); ) {
-            node = itor.nextNode();
+            tmp = itor.nextItem();
             if (index == 0) {
-                node.setData(data);
+                tmp.setData(item);
                 return;
             }
             index -= 1;
@@ -81,52 +70,102 @@ public class LinkedList<T> implements Iterable {
     }
 
     public T get(int index) {
-        Node<T> node;
+        Item<T> item;
         for (LinkedListIterator itor = new LinkedListIterator(); itor.hasNext(); ) {
-            node = itor.nextNode();
+            item = itor.nextItem();
             if (index == 0) {
 
-                return node.getData();
+                return item.getData();
             }
             index -= 1;
         }
         throw new IndexOutOfBoundsException();
     }
 
-    public void remove(int index) {
-        Node<T> node;
-        for (LinkedListIterator itor = new LinkedListIterator(); itor.hasNext(); ) {
-            node = itor.nextNode();
-            if (index == 0) {
-                node.getPrevious().setNext(node.getNext());
-                node.getNext().setPrevious(node.getPrevious());
-                this.length -= 1;
-                return;
-            }
-            index -= 1;
+    /**
+     * 取出第一个元素
+     */
+    public T pop() {
+        if (empty())
+            throw new IndexOutOfBoundsException();
+        if (length == 1) {
+            T rev = head.next.data;
+            clear();
+            return rev;
         }
-        throw new IndexOutOfBoundsException();
+        T rev = head.next.data;
+        head.setNext(head.getNext().getNext());
+        length-=1;
+        return rev;
+    }
+
+    /**
+     * 取出最后一个元素
+     */
+    protected T popLast() {
+        if (empty())
+            throw new IndexOutOfBoundsException();
+        else if (length == 1) {
+            T rev = head.next.data;
+            clear();
+            return rev;
+        }
+        T rev = tail.previous.data;
+        tail.setPrevious(tail.getPrevious().getPrevious());
+        length-=1;
+        return  rev;
+    }
+
+    /**
+     * 删除一个元素
+     * @param index 删除元素的下标
+     */
+    public void remove(int index) {
+        if (length == 1) {
+            clear();
+        } else if (index == 0) {
+            pop();
+        } else if (index == length - 1) {
+            popLast();
+        } else {
+            Item<T> item;
+            for (LinkedListIterator itor = new LinkedListIterator(); itor.hasNext(); ) {
+                item = itor.nextItem();
+                if (index == 0) {
+                    item.getPrevious().setNext(item.getNext());
+                    item.getNext().setPrevious(item.getPrevious());
+                    this.length -= 1;
+                    return;
+                }
+                index -= 1;
+            }
+            throw new IndexOutOfBoundsException();
+        }
     }
 
     public void clear() {
-        root = new Node<T>();
-        tail = new Node<>();
+        head = new Item<T>();
+        tail = new Item<>();
         this.length = 0;
+    }
+
+    public boolean empty() {
+        return length == 0;
     }
 
     public LinkedList<T> reverse() {
         LinkedList<T> rev = new LinkedList<>();
-        Node<T> node;
+        Item<T> item;
         int i = 0;
         for (LinkedListIterator itor = new LinkedListIterator(); i < length; ++i) {
-            rev.add(itor.previousNode().getData());
+            rev.add(itor.previousItem().getData());
         }
         return rev;
     }
 
     @Override
     public String toString() {
-        Node tmp = this.root;
+        Item tmp = this.head;
         StringBuffer rev = new StringBuffer();
         for (Iterator itor = this.iterator(); itor.hasNext(); ) {
             rev.append(itor.next());
@@ -137,8 +176,8 @@ public class LinkedList<T> implements Iterable {
     }
 
     private class LinkedListIterator implements Iterator<T> {
-        private Node<T> now = root;  //用于迭代器
-        private Node<T> nowTail = tail;
+        private Item<T> now = head;  //用于迭代器
+        private Item<T> nowTail = tail;
 
         // Iterator接口中需要实现的方法
         @Override
@@ -154,29 +193,37 @@ public class LinkedList<T> implements Iterable {
             return data;
         }
 
-        public Node<T> previousNode() {
-            Node<T> node = nowTail.getPrevious();
+        public Item<T> previousItem() {
+            Item<T> item = nowTail.getPrevious();
             nowTail = nowTail.getPrevious();
-            return node;
+            return item;
         }
 
-        Node<T> nextNode() {
-            Node<T> node = now.getNext();
+        Item<T> nextItem() {
+            Item<T> item = now.getNext();
             now = now.getNext();
-            return node;
+            return item;
         }
     }
 
-    private class Node<t> {
+    protected class Item<t> {
         private t data;
-        private Node<t> next;
-        private Node<t> previous;
+        private Item<t> next;
+        private Item<t> previous;
 
-        Node() {
+        Item() {
 
         }
 
-        Node(t data, Node<t> previous) {
+        Item(t data) {
+            this.data = data;
+        }
+
+        Item(Item<t> previous) {
+            this.previous = previous;
+        }
+
+        Item(t data, Item<t> previous) {
             this.data = data;
             this.previous = previous;
         }
@@ -186,11 +233,11 @@ public class LinkedList<T> implements Iterable {
             return data;
         }
 
-        Node<t> getNext() {
+        Item<t> getNext() {
             return next;
         }
 
-        Node<t> getPrevious() {
+        Item<t> getPrevious() {
             return this.previous;
         }
 
@@ -198,11 +245,11 @@ public class LinkedList<T> implements Iterable {
             this.data = data;
         }
 
-        void setPrevious(Node<t> previous) {
+        void setPrevious(Item<t> previous) {
             this.previous = previous;
         }
 
-        void setNext(Node<t> next) {
+        void setNext(Item<t> next) {
             this.next = next;
         }
 
@@ -215,11 +262,19 @@ public class LinkedList<T> implements Iterable {
 
     public static void main(String[] args) {
         String[] test1 = {"1", "2", "3"};
-        Integer[] test2 = {3, 4};
+        Integer[] test2 = {3, 4, 5, 6, 7, 8, 9};
         LinkedList<String> a = new LinkedList<String>();
-        LinkedList<Integer> b = new LinkedList<Integer>();
+        LinkedList<Integer> b = new LinkedList<Integer>(test2);
         a.addAll(test1);
-        b.addAll(test2);
-        System.out.print(a.reverse().toString());
+        a.remove(0);
+        System.out.println(a);
+        a.remove(0);
+        System.out.println(a);
+        a.remove(0);
+        System.out.println(a);
+
+        if (a.empty())
+            System.out.println(b);
+        System.out.println(a);
     }
 }

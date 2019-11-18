@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="697b1cbd-facb-4445-ac0c-6395cb4b242f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/数据结构/线性结构/LinkedList$LinkedListIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/数据结构/线性结构/LinkedList$LinkedListIterator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/数据结构/线性结构/LinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/数据结构/线性结构/LinkedList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/线性结构/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/线性结构/LinkedList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/线性结构/QueueByArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/线性结构/QueueByArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/线性结构/QueueByLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/线性结构/QueueByLinkedList.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +54,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Queue" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="线性结构.QueueByArray" />
+      <option name="MAIN_CLASS_NAME" value="线性结构.LinkedList" />
       <module name="数据结构" />
       <extension name="coverage">
         <pattern>
@@ -105,5 +109,13 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1.1 队列" />
     <option name="LAST_COMMIT_MESSAGE" value="1.1 队列" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="item.next" />
+        <watch expression="a.head" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
