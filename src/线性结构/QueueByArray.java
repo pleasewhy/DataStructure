@@ -6,8 +6,8 @@ public class QueueByArray implements Iterable {
     private int length = 0;
     private int size = 50000;
     private int[] items;
-    int head = 0;
-    int tail = 0;
+    private int head = 0;
+    private int tail = 0;
 
     public QueueByArray() {
         items = new int[this.size];
@@ -21,7 +21,9 @@ public class QueueByArray implements Iterable {
     public QueueByArray(int[] itemArray) {
         pushAll(itemArray);
     }
-
+    public int length(){
+        return length;
+    }
     public boolean empty() {
         return this.length == 0;
     }
