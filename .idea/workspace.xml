@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="697b1cbd-facb-4445-ac0c-6395cb4b242f" name="Default Changelist" comment="" />
+    <list default="true" id="697b1cbd-facb-4445-ac0c-6395cb4b242f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/线性结构/QueueByArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/数据结构/线性结构/LinkedList$LinkedListIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/数据结构/线性结构/LinkedList$LinkedListIterator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/数据结构/线性结构/LinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/数据结构/线性结构/LinkedList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/数据结构/线性结构/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/线性结构/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/线性结构/LinkedList.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,11 +26,16 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1TizvvcbpIVUMCeZTX5o3K1Z1p6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -41,8 +54,8 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="LinkedList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="线性结构.LinkedList" />
+    <configuration name="Queue" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="线性结构.QueueByArray" />
       <module name="数据结构" />
       <extension name="coverage">
         <pattern>
@@ -56,7 +69,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LinkedList" />
+        <item itemvalue="Application.Queue" />
       </list>
     </recent_temporary>
   </component>
@@ -72,5 +85,18 @@
       <updated>1573957937763</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
