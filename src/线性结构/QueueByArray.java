@@ -2,24 +2,24 @@ package 线性结构;
 
 import java.util.Iterator;
 
-public class QueueByArray implements Iterable {
+public class QueueByArray<T> implements Iterable<T> {
     private int length = 0;
     private int size = 50000;
-    private int[] items;
+    private T[] items;
     private int head = 0;
     private int tail = 0;
 
     public QueueByArray() {
-        items = new int[this.size];
+        items = (T[])(new Object[this.size]);
     }
 
     public QueueByArray(int size) {
         this.size = size;
-        items = new int[size];
+        items = (T[])(new Object[size]);
     }
 
-    public QueueByArray(int[] itemArray) {
-        items = new int[size];
+    public QueueByArray(T[] itemArray) {
+        items = (T[])(new Object[size]);
         pushAll(itemArray);
     }
 
@@ -45,7 +45,7 @@ public class QueueByArray implements Iterable {
         tail = length;
     }
 
-    public void push(int item) {
+    public void push(T item) {
         if (tail != size) {
             items[tail++] = item;
             length += 1;
@@ -58,7 +58,7 @@ public class QueueByArray implements Iterable {
         }
     }
 
-    public void pushAll(int[] itemArray) {
+    public void pushAll(T[] itemArray) {
         if (size - length < itemArray.length) {
             throw new IndexOutOfBoundsException();
         }
@@ -67,14 +67,14 @@ public class QueueByArray implements Iterable {
         }
     }
 
-    public int get() {
+    public T get() {
         if (!empty())
             return items[head];
         throw new IndexOutOfBoundsException();
     }
 
-    public int pop() {
-        int rev = get();
+    public T pop() {
+        T rev = get();
         head += 1;
         length -= 1;
         return rev;
@@ -85,7 +85,7 @@ public class QueueByArray implements Iterable {
         return new QueueIterator();
     }
 
-    private class QueueIterator implements Iterator<Integer> {
+    private class QueueIterator implements Iterator<T> {
         private int now = head;
 
         @Override
@@ -94,7 +94,7 @@ public class QueueByArray implements Iterable {
         }
 
         @Override
-        public Integer next() {
+        public T next() {
             if (!empty()) {
                 return items[now++];
             }
@@ -104,7 +104,7 @@ public class QueueByArray implements Iterable {
     }
 
     public static void main(String[] args) {
-        int[] test1 = {1, 2, 3, 4, 5, 6};
+        Integer[] test1 = {1, 2, 3, 4, 5, 6};
         QueueByArray q = new QueueByArray(test1);
         System.out.print(q.pop());
         q.pushAll(test1);
