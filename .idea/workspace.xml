@@ -6,8 +6,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/数据结构/线性结构/LinkedList$LinkedListIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/数据结构/线性结构/LinkedList$LinkedListIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/数据结构/线性结构/LinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/数据结构/线性结构/LinkedList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/线性结构/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/线性结构/LinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/线性结构/QueueByArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/线性结构/QueueByArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/线性结构/QueueByLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/线性结构/QueueByLinkedList.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +25,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
