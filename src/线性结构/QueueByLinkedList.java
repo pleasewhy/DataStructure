@@ -21,24 +21,6 @@ public class QueueByLinkedList<T> extends LinkedList<T> {
         addAll(items);
     }
 
-    public void add(T item) {
-        super.add(item);
-    }
-
-    public void addAll(T[] items) {
-        super.addAll(items);
-    }
-
-    public void addAll(LinkedList<T> items) {
-        super.addAll(items);
-    }
-
-    public T pop() {
-        T rev = super.get(0);
-        super.remove(0);
-        return rev;
-    }
-
     public T get() {
         return super.get(0);
     }
@@ -53,13 +35,14 @@ public class QueueByLinkedList<T> extends LinkedList<T> {
 
     @Override
     public String toString() {
-        return "head->" + super.toString() + "<-tail";
+        return "head-> " + super.toString() + " <-tail";
     }
 
     public static void main(String[] args) {
-        Integer[] a = {1, 2, 3, 4, 5, 6, 7, 8};
+        Integer[] a = {1, 2, 3};
         QueueByLinkedList<Integer> test = new QueueByLinkedList<>();
         test.addAll(a);
+        test.pop();
         if (!test.empty())
             System.out.println(test);
     }

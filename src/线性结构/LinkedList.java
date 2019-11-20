@@ -30,7 +30,7 @@ public class LinkedList<T> implements Iterable {
     /**
      * @return 链表的长度
      */
-    public int getLength() {
+    public int length() {
         return length;
     }
 

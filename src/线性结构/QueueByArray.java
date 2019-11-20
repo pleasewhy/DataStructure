@@ -61,7 +61,7 @@ public class QueueByArray<T> implements Iterable<T> {
      * 判断队列是否满元素
      * @return
      */
-    public boolean fill() {
+    public boolean isFull() {
         return length == size;
     }
 
