@@ -14,6 +14,7 @@ public class Stack<T> {
     int size;
 
     public Stack() {
+        this(DEFAULTSIZE);
     }
 
     public Stack(int size) {
@@ -38,12 +39,18 @@ public class Stack<T> {
     public T top(){
         if(isEmpty())
             throw new NullPointerException();
-        return array[length];
+        return array[length-1];
     }
 
     public T pop(){
         if(isEmpty())
             throw new NullPointerException();
-        return array[length--];
+        return array[--length];
+    }
+    public static void main(String[] args){
+        Stack<Integer>  test = new Stack<>();
+        test.push(1);
+        System.out.print(test.top()+" " + test.pop()+" "+ test.length);
+
     }
 }
