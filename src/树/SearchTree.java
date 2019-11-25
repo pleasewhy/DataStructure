@@ -1,8 +1,5 @@
 package 树;
 
-import com.sun.source.tree.Tree;
-import org.jetbrains.annotations.Contract;
-
 /**
  * 查找树ADT----二叉查找树
  * 其左节点大于（小于）等于父节点右节点小于（大于）父节点，
@@ -12,10 +9,9 @@ import org.jetbrains.annotations.Contract;
  * @param <T>
  */
 public class SearchTree<T extends Comparable> {
-    private int length = 0;
-    private TreeNode root;
+    protected int length = 0;
+    protected TreeNode root;
 
-    @Contract(pure = true)
     public SearchTree() {
     }
 
@@ -50,7 +46,7 @@ public class SearchTree<T extends Comparable> {
     }
 
     public void delete(T element) {
-        if(find(element))
+        if (find(element))
             length--;
         root = delete(root, element);
     }
@@ -70,7 +66,7 @@ public class SearchTree<T extends Comparable> {
         } else if (element.compareTo(now.element) < 0) {
             now.right = delete(now.right, element);
         } else if (now.right != null && now.left != null) {
-            TreeNode node =  findMin(now.left);
+            TreeNode node = findMin(now.left);
             now.element = node.element;
             now.frequency = node.frequency;
             now.left = delete(now.left, now.element);
@@ -134,17 +130,17 @@ public class SearchTree<T extends Comparable> {
         return findMin(now.right);
     }
 
-    private class TreeNode {
+    protected class TreeNode {
         T element;  // 储存元素的值
         int frequency = 1; // 频率
         TreeNode left;  // 左节点
         TreeNode right;  // 右节点
 
-        @Contract(pure = true)
         TreeNode(T element) {
             this.element = element;
         }
     }
+
 
     public static void main(String[] args) {
         int[] test = {1, 2, 3, 6, 9, 10, 45, 654, 452, 485, 45, 45, 78, 21, 2, 2415, 21, 2, 45};
@@ -153,8 +149,8 @@ public class SearchTree<T extends Comparable> {
         ) {
             t.insert(i);
         }
-
         t.delete(2415);
-        System.out.print(t.findMin()+" "+t.findMax());
+        System.out.print(t.findMin() + " " + t.findMax());
+        System.out.println();
     }
 }
