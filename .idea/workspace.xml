@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="697b1cbd-facb-4445-ac0c-6395cb4b242f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/树/Travere.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/数据结构/META-INF/数据结构.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/树/SearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/树/SearchTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据结构.iml" beforeDir="false" afterPath="$PROJECT_DIR$/数据结构.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/树/Travere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/树/Travere.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,6 +98,8 @@
       <updated>1573957937763</updated>
       <workItem from="1574687836104" duration="3766000" />
       <workItem from="1574691735573" duration="441000" />
+      <workItem from="1574742055023" duration="57000" />
+      <workItem from="1574773049212" duration="5590000" />
     </task>
     <task id="LOCAL-00001" summary="1.1 队列">
       <created>1574071190984</created>
