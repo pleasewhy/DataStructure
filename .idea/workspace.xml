@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="697b1cbd-facb-4445-ac0c-6395cb4b242f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/树/Travere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/树/Travere.java" afterDir="false" />
     </list>
@@ -99,7 +98,10 @@
       <workItem from="1574687836104" duration="3766000" />
       <workItem from="1574691735573" duration="441000" />
       <workItem from="1574742055023" duration="57000" />
-      <workItem from="1574773049212" duration="5590000" />
+      <workItem from="1574773049212" duration="5747000" />
+      <workItem from="1574829657403" duration="626000" />
+      <workItem from="1574852711355" duration="26000" />
+      <workItem from="1574853214204" duration="9671000" />
     </task>
     <task id="LOCAL-00001" summary="1.1 队列">
       <created>1574071190984</created>
